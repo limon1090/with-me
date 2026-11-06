@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ডেটে যাবে আমার সাথে? 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe3ef;--bg2:#fff3d6;--card:#ffffff;--ink:#4a1f3a;--mut:#8b5a78;--pink:#ff4f93;--pink2:#ff8fb8;--line:#ffd0e3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1030;--bg2:#3a1a2a;--card:#3b1c3f;--ink:#ffe9f3;--mut:#e0b5cf;--line:#6b3a66}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Hind Siliguri',system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;padding:70px 14px 30px;overflow-x:hidden}
+.lights{position:fixed;top:0;left:0;right:0;height:46px;display:flex;justify-content:space-around;pointer-events:none;z-index:5;padding-top:env(safe-area-inset-top,0px)}
+.lights i{width:12px;height:12px;border-radius:50%;margin-top:14px;animation:tw 1.6s infinite;box-shadow:0 0 14px 5px currentColor;background:currentColor}
+.lights i:nth-child(4n+1){color:#ff4f93}.lights i:nth-child(4n+2){color:#ffc233;animation-delay:.4s}.lights i:nth-child(4n+3){color:#5ad1ff;animation-delay:.8s}.lights i:nth-child(4n){color:#9b7bff;animation-delay:1.2s}
+@keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}
+.heart{position:fixed;bottom:-30px;font-size:20px;animation:up linear forwards;pointer-events:none;z-index:1}
+@keyframes up{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+.card{position:relative;z-index:2;width:100%;max-width:440px;background:var(--card);border-radius:26px;padding:26px 22px;box-shadow:0 20px 60px rgba(255,79,147,.28),0 0 0 4px var(--line);text-align:center;animation:pop .5s}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+h1{font-size:28px;margin:6px 0 4px}h2{font-size:21px;margin:0 0 14px}
+p{color:var(--mut);margin:6px 0 14px}
+.big{font-size:64px;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+.btns{display:flex;gap:14px;justify-content:center;align-items:center;min-height:64px;margin-top:12px}
+button,.btn{font-family:inherit;font-size:18px;font-weight:700;border:0;border-radius:999px;padding:13px 30px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--pink),#ff7a5c);box-shadow:0 6px 20px rgba(255,79,147,.45)}
+button:active{transform:scale(.96)}
+#no{background:#8e8e9a;box-shadow:none;transition:left .25s,top .25s}
+label{display:block;text-align:left;font-weight:600;margin:10px 0 4px;font-size:15px}
+input[type=date],input[type=time],input[type=text]{width:100%;font-family:inherit;font-size:17px;padding:11px 13px;border-radius:14px;border:2px solid var(--line);background:transparent;color:var(--ink)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:2px solid var(--line);border-radius:16px;padding:12px 8px;cursor:pointer;font-weight:600;user-select:none;transition:.15s}
+.opt.on{border-color:var(--pink);background:rgba(255,79,147,.14);box-shadow:0 0 14px rgba(255,79,147,.45)}
+.opt small{display:block;color:var(--mut);font-weight:400}
+.total{font-size:20px;font-weight:700;margin:14px 0 2px;color:var(--pink)}
+.steps{display:flex;gap:6px;justify-content:center;margin-bottom:12px}.steps b{width:26px;height:6px;border-radius:9px;background:var(--line)}.steps b.on{background:var(--pink)}
+.bk{background:#e2136e;color:#fff;border-radius:18px;padding:14px;margin:10px 0}
+.bk .num{font-size:24px;font-weight:700;letter-spacing:1px}
+.bk button{margin-top:8px;font-size:14px;padding:7px 16px;background:#fff;color:#e2136e;box-shadow:none}
+.sum{text-align:left;background:rgba(255,79,147,.1);border-radius:16px;padding:12px 16px;line-height:1.8}
+.hid{display:none}
+body{background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg1),var(--bg2));background-size:300% 300%;animation:bg 14s ease infinite}
+@keyframes bg{50%{background-position:100% 50%}}
+body::before,body::after{content:'';position:fixed;width:340px;height:340px;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;animation:fl 9s ease-in-out infinite alternate}
+body::before{background:#ff8fb8;top:-80px;left:-80px}body::after{background:#ffd36b;bottom:-80px;right:-80px;animation-delay:-4s}
+@keyframes fl{to{transform:translate(60px,50px) scale(1.2)}}
+.card{backdrop-filter:blur(12px);animation:pop .6s cubic-bezier(.2,1.4,.4,1),glow 3s ease-in-out infinite alternate}
+@keyframes glow{to{box-shadow:0 20px 70px rgba(255,79,147,.5),0 0 0 4px var(--pink2)}}
+h1,h2{background:linear-gradient(90deg,#ff4f93,#ff9a3c,#9b6bff,#ff4f93);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s linear infinite}
+@keyframes sh{to{background-position:250% 0}}
+#yes{animation:pulse 1.4s infinite;transition:transform .3s}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(255,79,147,.15),0 6px 26px rgba(255,79,147,.7)}}
+#no{transition:left .3s cubic-bezier(.3,1.6,.5,1),top .3s cubic-bezier(.3,1.6,.5,1),transform .3s}
+.opt:hover{transform:translateY(-3px)}
+#mu{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;width:46px;height:46px;padding:0;font-size:20px}
+.err{color:#e0245e;font-size:14px;min-height:18px}
+</style>
+</head>
+<body>
+<div class="lights" id="lights"></div>
+<div class="card" id="card"></div>
+<button id="mu" title="Music">🎵</button>
+<script>
+// ✏️ এখানে নিজের তথ্য বসাও
+const BKASH = "01913432473";      // তোমার বিকাশ নাম্বার
+const WHATSAPP = "8801855644113"; // তোমার WhatsApp নাম্বার (দেশের কোডসহ, + ছাড়া)
+const HER_NAME = "";              // চাইলে তার নাম
+
+const L=document.getElementById('lights');for(let i=0;i<14;i++)L.appendChild(document.createElement('i'));
+setInterval(()=>{const h=document.createElement('div');h.className='heart';h.textContent=['💖','💕','✨','🌸','💗'][Math.random()*5|0];h.style.left=Math.random()*100+'vw';h.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),10500)},600);
+
+const S={date:'',time:'',until:'',area:'',place:'',food:new Set()};
+const places={in:['শীতলক্ষ্যা নদীর পাড়','পানাম নগর','হাজীগঞ্জ কেল্লা','নারায়ণগঞ্জ বন্দর ঘাট'],out:['হাতিরঝিল','ধানমন্ডি লেক','রমনা পার্ক','বসুন্ধরা সিটি','পূর্বাচল লেক']};
+const foods=[['🍔','বার্গার',450],['🍗','চিকেন ফ্রাই',520],['☕','কফি',280],['🍵','চা',90],['🥟','ফুচকা',150],['🍦','আইসক্রিম',220],['🍛','বিরিয়ানি',650],['🍫','চকলেট (এক্সট্রা)',350]];
+const card=document.getElementById('card');
+const dots=n=>'<div class="steps">'+[0,1,2,3,4].map(i=>'<b class="'+(i<=n?'on':'')+'"></b>').join('')+'</div>';
+const tot=()=>[...S.food].reduce((a,i)=>a+foods[i][2],0);
+
+function s0(){
+ card.innerHTML='<div class="big">💝</div><h1>'+(HER_NAME?HER_NAME+', ':'')+'Will you go on a date with me? 💖<br>আমার সাথে ডেটে যাবে?</h1><p>একটাই সুযোগ... আর উত্তরটাও একটাই 😌</p><div class="btns" id="bt"><button id="yes">Yes 💖</button><button id="no">No 💔</button></div>';
+ const no=document.getElementById('no'),msgs=['ধরতে পারলে না 😜','এত সহজ না! 😂','ইয়েস চাপো না প্লিজ 🥺','পালাচ্ছি পালাচ্ছি 🏃','হাত ফসকে গেল 😝'];let k=0;
+ const run=e=>{e&&e.preventDefault();no.style.position='fixed';const w=innerWidth-no.offsetWidth-10,h=innerHeight-no.offsetHeight-10;no.style.left=Math.max(5,Math.random()*w)+'px';no.style.top=Math.max(60,Math.random()*h)+'px';no.textContent=msgs[k++%msgs.length];no.style.zIndex=9;no.style.transform='rotate('+((Math.random()*50-25)|0)+'deg)';window.gy=Math.min((window.gy||1)+.07,1.6);document.getElementById('yes').style.transform='scale('+window.gy+')'};
+ ['pointerenter','touchstart','pointerdown','focus'].forEach(ev=>no.addEventListener(ev,run));
+ no.addEventListener('click',ev=>{ev.preventDefault();ev.stopImmediatePropagation()},true);
+ document.addEventListener('pointermove',ev=>{if(!document.getElementById('no'))return;const r=no.getBoundingClientRect();if(Math.hypot(ev.clientX-(r.left+r.width/2),ev.clientY-(r.top+r.height/2))<95)run()});
+ document.getElementById('yes').onclick=()=>{burst();s1()};
+}
+function burst(){for(let i=0;i<30;i++){const h=document.createElement('div');h.className='heart';h.textContent='💖';h.style.left=Math.random()*100+'vw';h.style.animationDuration=(2+Math.random()*3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),5500)}}
+function s1(){
+ card.innerHTML=dots(0)+'<h2>🎉 Yay! When? কবে যাবে?</h2><label>Date / তারিখ</label><input type="date" id="d" value="'+S.date+'"><label>কয় টায় যাবে</label><input type="time" id="t" value="'+S.time+'"><label>কয়টা পর্যন্ত থাকতে পারবে (ডেডলাইন)</label><input type="time" id="u" value="'+S.until+'"><div class="err" id="e"></div><button id="n">পরের ধাপ ➜</button>';
+ n.onclick=()=>{S.date=d.value;S.time=t.value;S.until=u.value;if(!S.date||!S.time||!S.until){e.textContent='সব ঘর পূরণ করো 🥺';return}s2()};
+}
+function s2(){
+ card.innerHTML=dots(1)+'<h2>📍 Where to? কোথায় যাবে?</h2><div class="opts"><div class="opt" data-a="in">🏡 নারায়ণগঞ্জের ভেতরে</div><div class="opt" data-a="out">🚗 নারায়ণগঞ্জের বাইরে</div></div><div id="pl" class="opts" style="margin-top:12px"></div><div class="err" id="e"></div><button id="n" style="margin-top:8px">পরের ধাপ ➜</button><br><br><a href="#" id="b">⬅ পেছনে</a>';
+ const draw=()=>{document.querySelectorAll('[data-a]').forEach(o=>o.classList.toggle('on',o.dataset.a===S.area));pl.innerHTML=S.area?places[S.area].map(p=>'<div class="opt pp '+(p===S.place?'on':'')+'">'+p+'</div>').join(''):'';document.querySelectorAll('.pp').forEach(o=>o.onclick=()=>{S.place=o.textContent;draw()})};
+ document.querySelectorAll('[data-a]').forEach(o=>o.onclick=()=>{S.area=o.dataset.a;S.place='';draw()});draw();
+ b.onclick=ev=>{ev.preventDefault();s1()};
+ n.onclick=()=>{if(!S.place){e.textContent='একটা জায়গা বেছে নাও 🥺';return}s3()};
+}
+function s3(){
+ card.innerHTML=dots(2)+'<h2>🍽️ What to eat? কী খাবে?</h2><div class="opts" id="f"></div><div class="err" id="e"></div><button id="n">পরের ধাপ ➜</button><br><br><a href="#" id="b">⬅ পেছনে</a>';
+ const draw=()=>{f.innerHTML=foods.map((x,i)=>'<div class="opt '+(S.food.has(i)?'on':'')+'" data-i="'+i+'">'+x[0]+' '+x[1]+'</div>').join('');f.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{const i=+o.dataset.i;S.food.has(i)?S.food.delete(i):S.food.add(i);draw()})};draw();
+ b.onclick=ev=>{ev.preventDefault();s2()};
+ n.onclick=()=>{if(!S.food.size){e.textContent='কিছু তো খাও 🥺';return}s4()};
+}
+function s4(){
+ card.innerHTML=dots(3)+'<h2>💸 Surprise! আগে পেমেন্ট, তারপর ডেট!</h2><p>বিল: <b style="color:var(--pink)">৳'+tot()+'</b> — Pay First, Date Later 😂</p><div class="bk"><div>bKash Personal</div><div class="num">'+BKASH+'</div><button id="c">📋 নাম্বার কপি করো</button></div><label>Transaction ID (মজা করে লিখো 😜)</label><input type="text" id="x" placeholder="যেমন: 8N7A6D5X"><div class="err" id="e"></div><button id="n">পেমেন্ট করলাম ✅</button><br><br><a href="#" id="b">⬅ পেছনে</a>';
+ c.onclick=()=>{try{navigator.clipboard.writeText(BKASH)}catch(_){}c.textContent='কপি হয়েছে ✔'};
+ b.onclick=ev=>{ev.preventDefault();s3()};
+ n.onclick=()=>{if(!x.value.trim()){e.textContent='Transaction ID ছাড়া ডেট নাই 😤';return}s5()};
+}
+function s5(){
+ burst();burst();
+ const items=[...S.food].map(i=>foods[i][1]).join(', ');
+ const txt='হ্যাঁ বলেছি! 💖%0Aতারিখ: '+S.date+'%0Aসময়: '+S.time+' থেকে '+S.until+'%0Aজায়গা: '+S.place+'%0Aখাবার: '+items+'%0Aবিল: ৳'+tot()+' (পেমেন্ট করা হয়েছে ✅)';
+ card.innerHTML='<div class="big">🥰</div><h1>Date Confirmed! 🎉 ডেট কনফার্ম!</h1><div class="sum">📅 '+S.date+'<br>⏰ '+S.time+' – '+S.until+'<br>📍 '+S.place+'<br>🍽️ '+items+'<br>💰 ৳'+tot()+' ✅</div><p>এবার আমাকে জানিয়ে দাও 😘</p><a class="btn" style="display:inline-block;text-decoration:none" href="https://wa.me/'+WHATSAPP+'?text='+txt+'" target="_blank">WhatsApp-এ পাঠাও 💌</a>';
+}
+let ac,muted=false,master;
+function startMusic(){try{if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=.13;master.connect(ac.destination);const n=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,659.25,783.99,1046.5];let i=0;setInterval(()=>{if(!muted)note(n[i++%n.length],1.5,.8)},650)}if(ac.state==='suspended')ac.resume()}catch(_){}}
+function note(f,d,v){const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime;o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.1)}
+document.addEventListener('pointerdown',startMusic,{once:true});
+document.addEventListener('click',e=>{if(ac&&!muted&&e.target.closest('button,.opt,.btn')&&e.target.id!=='no'&&e.target.id!=='mu'){note(1046.5,.6,1);setTimeout(()=>note(1318.5,.7,.8),90)}});
+mu.onclick=()=>{startMusic();muted=!muted;mu.textContent=muted?'🔇':'🎵'};
+s0();
+</script>
+</body>
+</html>
